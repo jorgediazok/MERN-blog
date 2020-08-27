@@ -10,10 +10,15 @@ import {
 import PageRenderer from './Page-Renderer';
 
 function App() {
+  const user = {
+    firstName: 'Jorge',
+    lastName: 'Diaz',
+  };
+
   return (
     <Router>
       <div className="App">
-        <Navigation />
+        <Navigation user={user} />
         <Switch>
           <Route path="/:page" component={PageRenderer} />
           <Route path="/" render={() => <Redirect to="/home" />} />
