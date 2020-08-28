@@ -27,8 +27,13 @@ const featuredConfig = {
 const mergeStyles = function (posts, config) {
   posts.forEach((post, index) => {
     post.style = config[index];
+    post.author = 'Jorge DV';
+    post.description =
+      'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus at natus esse eos maxime! Facilis quae similique delectus dolor et!';
   });
 };
+
+const recentPosts = [...trending, ...featured, ...featured];
 
 mergeStyles(trending, trendingConfig);
 mergeStyles(featured, featuredConfig);
@@ -37,17 +42,29 @@ const lastFeatured = featured.pop();
 
 const Home = () => {
   return (
-    <section className="container home">
-      <div className="row">
-        <h1>Featured Posts</h1>
-        <section className="featured-posts-container">
-          <PostMasonry tagsOnTop={true} posts={featured} columns={2} />
-          <MasonryPost post={lastFeatured} tagsOnTop={true} />
-        </section>
-        <h1>Trending Posts</h1>
-        <PostMasonry tagsOnTop={true} posts={trending} columns={3} />
-      </div>
-    </section>
+    <main className="home">
+      <section className="container">
+        <div className="row">
+          <h1>Featured Posts</h1>
+          <section className="featured-posts-container">
+            <PostMasonry tagsOnTop={true} posts={featured} columns={2} />
+            <MasonryPost post={lastFeatured} tagsOnTop={true} />
+          </section>
+          <h1>Trending Posts</h1>
+        </div>
+      </section>
+      <section className="container">
+        <div className="row">
+          <h1>Recent Posts</h1>
+          <PostGrid posts={recentPosts} />
+        </div>
+      </section>
+      <section className="container">
+        <div className="row">
+          <PostMasonry tagsOnTop={true} posts={trending} columns={3} />
+        </div>
+      </section>
+    </main>
   );
 };
 
