@@ -32,7 +32,7 @@ export default [
   {
     title: 'React vs Vue',
     date: moment().format('MMM DD YYYY'),
-    categories: ['React', 'Javascript', 'Vue'],
+    categories: ['React', 'Vue'],
     link: '#',
     image: 'react_vs_vue.jpg',
   },
