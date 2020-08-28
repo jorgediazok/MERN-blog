@@ -1,7 +1,16 @@
 import React from 'react';
+import { PostMasonry } from '../components/common';
+import trending from '../assets/mocks/trending';
 
-const Home = (props) => {
-  return <section className="container home"></section>;
+const Home = () => {
+  return (
+    <section className="container home">
+      <div className="row">
+        <h2>Trending Posts</h2>
+        <PostMasonry tagsOnTop={''} posts={trending} columns={3} />
+      </div>
+    </section>
+  );
 };
 
 export default Home;

@@ -29,4 +29,11 @@ export default [
     link: '#',
     image: 'neuron.jpg',
   },
+  {
+    title: 'React vs Vue',
+    date: moment().format('MMM DD YYYY'),
+    categories: ['React', 'Javascript', 'Vue'],
+    link: '#',
+    image: 'react_vs_vue.jpg',
+  },
 ];
