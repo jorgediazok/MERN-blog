@@ -1,5 +1,5 @@
 import React from 'react';
-import { PostMasonry, MasonryPost } from '../components/common';
+import { PostMasonry, MasonryPost, PostGrid } from '../components/common';
 import trending from '../assets/mocks/trending';
 import featured from '../assets/mocks/featured';
 
@@ -40,7 +40,7 @@ mergeStyles(featured, featuredConfig);
 
 const lastFeatured = featured.pop();
 
-const Home = () => {
+export default function Home() {
   return (
     <main className="home">
       <section className="container">
@@ -50,14 +50,14 @@ const Home = () => {
             <PostMasonry tagsOnTop={true} posts={featured} columns={2} />
             <MasonryPost post={lastFeatured} tagsOnTop={true} />
           </section>
-          <h1>Trending Posts</h1>
         </div>
       </section>
-      <section className="container">
-        <div className="row">
-          <h1>Recent Posts</h1>
-          <PostGrid posts={recentPosts} />
-        </div>
+      <section className="bg-white">
+        <section className="container">
+          <div className="row">
+            <PostGrid posts={recentPosts} />
+          </div>
+        </section>
       </section>
       <section className="container">
         <div className="row">
@@ -66,6 +66,4 @@ const Home = () => {
       </section>
     </main>
   );
-};
-
-export default Home;
+}

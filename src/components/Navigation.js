@@ -21,12 +21,12 @@ const navLinks = [
   },
 ];
 
-const Navigation = ({ user }) => {
+export default function Navigation({ user }) {
   const [menuActive, setMenuActive] = useState(false);
 
   return (
     <nav className="site-navigation">
-      <span className="menu-title">JDW International</span>
+      <span className="menu-title">JDW Techno</span>
       <div className={`menu-content-container ${menuActive && 'active'}`}>
         <ul>
           {navLinks.map((link, index) => (
@@ -49,6 +49,4 @@ const Navigation = ({ user }) => {
       />
     </nav>
   );
-};
-
-export default Navigation;
+}

@@ -13,12 +13,10 @@ const generatePage = (page) => {
   }
 };
 
-const PageRenderer = () => {
+export default function PageRenderer() {
   const {
     params: { page },
   } = useRouteMatch();
 
   return generatePage(page);
-};
-
-export default PageRenderer;
+}
