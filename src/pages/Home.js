@@ -29,39 +29,39 @@ const mergeStyles = function (posts, config) {
     post.style = config[index];
     post.author = 'Jorge DV';
     post.description =
-      'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus at natus esse eos maxime! Facilis quae similique delectus dolor et!';
+      'Jorge is a Full Stack Web Developer who enjoys technology and wanted to make a project that includes new technologies';
   });
 };
 
 const recentPosts = [...trending, ...featured, ...featured];
 
-mergeStyles(trending, trendingConfig);
 mergeStyles(featured, featuredConfig);
+mergeStyles(trending, trendingConfig);
 
-const lastFeatured = featured.pop();
+const lastPost = featured.pop();
 
 export default function Home() {
   return (
     <main className="home">
       <section className="container">
         <div className="row">
-          <h1>Featured Posts</h1>
           <section className="featured-posts-container">
-            <PostMasonry tagsOnTop={true} posts={featured} columns={2} />
-            <MasonryPost post={lastFeatured} tagsOnTop={true} />
+            <PostMasonry posts={featured} columns={2} tagsOnTop={true} />
+            <MasonryPost post={lastPost} tagsOnTop={true} />
           </section>
         </div>
       </section>
       <section className="bg-white">
         <section className="container">
           <div className="row">
+            <h1>Recent Posts</h1>
             <PostGrid posts={recentPosts} />
           </div>
         </section>
       </section>
       <section className="container">
         <div className="row">
-          <PostMasonry tagsOnTop={true} posts={trending} columns={3} />
+          <PostMasonry posts={trending} columns={3} tagsOnTop={true} />
         </div>
       </section>
     </main>
